@@ -13,12 +13,12 @@ import {Button} from "./ui/button";
 
 const Header = () => {
   const navigate = useNavigate();
-  const user = true;
+  const user = false;
   return (
     <>
       <nav className="py-4 flex justify-between items-center">
         <Link to="/">
-          <img src="/logo.png" className="h-16" alt="Trimrr Logo" />
+          <img src="/logo.png" className="h-20" alt="Snipp Logo" />
         </Link>
         <div className="flex gap-4">
           {!user ? (
