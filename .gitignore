@@ -1,7 +1,6 @@
 # Sensitive files
 .env
 .env.backup
-src/lib/.env
 
 # Logs
 logs
