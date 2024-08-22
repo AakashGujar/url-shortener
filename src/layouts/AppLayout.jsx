@@ -8,14 +8,17 @@ const AppLayout = () => {
         <Header />
         <Outlet />
       </main>
-      <footer className="p-10 text-center bg-gray-800 mt-10">
-        Aakash Gujar | <a href="https://github.com/aakashgujar" className="underline">
+      <footer className="p-10 text-center bg-gray-800 mt-10 text-white">
+        Aakash Gujar{" "}
+        <span className="mx-2">|</span>{" "}
+        <a href="https://github.com/aakashgujar" className="underline">
           GitHub
         </a>{" "}
-        | © RSC
+        <span className="mx-2">|</span>{" "}
+        © RSC
       </footer>
     </>
   );
 };
 
-export default AppLayout;
+export default AppLayout
