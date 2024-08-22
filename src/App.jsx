@@ -33,9 +33,9 @@ function App() {
   ]);
   return (
     <UrlProvider>
-      <RouterProvider router={router}></RouterProvider>;
+      <RouterProvider router={router}></RouterProvider>
     </UrlProvider>
-  );
+  )
 }
 
 export default App;
