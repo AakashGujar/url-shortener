@@ -1,4 +1,4 @@
-import { Input } from "./ui/input";
+import {Input} from "./ui/input";
 import {
   Card,
   CardContent,
@@ -7,13 +7,13 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { Button } from "./ui/button";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {Button} from "./ui/button";
+import {useNavigate, useSearchParams} from "react-router-dom";
+import {useEffect, useState} from "react";
 import * as Yup from "yup";
 import Error from "./error";
-import { login } from "@/db/apiAuth";
-import { BeatLoader } from "react-spinners";
+import {login} from "@/db/apiAuth";
+import {BeatLoader} from "react-spinners";
 import useFetch from "@/hooks/use-fetch";
 import {UrlState} from "@/context";
 
@@ -22,6 +22,7 @@ const Login = () => {
   const longLink = searchParams.get("createNew");
 
   const navigate = useNavigate();
+
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     email: "",
@@ -29,20 +30,22 @@ const Login = () => {
   });
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const {name, value} = e.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   };
 
-  const { loading, error, fn: fnLogin, data } = useFetch(login, formData);
+  const {loading, error, fn: fnLogin, data} = useFetch(login, formData);
+  const {fetchUser} = UrlState();
 
   useEffect(() => {
     if (error === null && data) {
       fetchUser();
       navigate(`/dashboard?${longLink ? `createNew=${longLink}` : ""}`);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error, data]);
 
   const handleLogin = async () => {
@@ -57,7 +60,7 @@ const Login = () => {
           .required("Password is required"),
       });
 
-      await schema.validate(formData, { abortEarly: false });
+      await schema.validate(formData, {abortEarly: false});
       await fnLogin();
     } catch (e) {
       const newErrors = {};
@@ -101,7 +104,7 @@ const Login = () => {
       </CardContent>
       <CardFooter>
         <Button onClick={handleLogin}>
-          {loading ? <BeatLoader size={10} /> : "Login"}
+          {loading ? <BeatLoader size={10} color="#36d7b7" /> : "Login"}
         </Button>
       </CardFooter>
     </Card>
