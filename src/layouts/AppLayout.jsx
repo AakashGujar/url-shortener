@@ -5,11 +5,14 @@ const AppLayout = () => {
   return (
     <>
       <main className="min-h-screen container">
-        <Header/>
+        <Header />
         <Outlet />
       </main>
       <footer className="p-10 text-center bg-gray-800 mt-10">
-        Credit goes to RSC 🙌 for the tutorial and valuable content.
+        Aakash Gujar | <a href="https://github.com/aakashgujar" className="underline">
+          GitHub
+        </a>{" "}
+        | © RSC
       </footer>
     </>
   );
